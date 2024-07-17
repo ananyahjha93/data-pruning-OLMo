@@ -3,13 +3,11 @@
 set -ex
 
 NUM_NODES=1
-TASK_NAMES=("reference/olmo-60M-pes2o-24B" "reference/olmo-60M-pes2o-60B")
-MAX_DURATIONS=("12_000" "30_000")
+TASK_NAME=reference/olmo-60M-pes2o-24B
+MAX_DURATION=12_000
 
-length=${#MAX_DURATIONS[@]}
-
-for ((i=0; i < $length; i++)); do
-    gantry run \
+gantry run \
+    --allow-dirty \
     --workspace ai2/data-pruning \
     --task-name ${TASK_NAME} \
     --description "data pruning experiments" \
@@ -35,5 +33,4 @@ for ((i=0; i < $length; i++)); do
     --venv base \
     --yes \
     --timeout=-1 \
-    -- /bin/bash -c "scripts/beaker/tiny/torchrun-script.sh \$BEAKER_LEADER_REPLICA_HOSTNAME ${NUM_NODES} ${TASK_NAMES[$i]} ${MAX_DURATIONS[$i]}"
-done
+    -- /bin/bash -c "scripts/beaker/tiny/torchrun-script.sh \$BEAKER_LEADER_REPLICA_HOSTNAME ${NUM_NODES} ${TASK_NAME} ${MAX_DURATION}"
