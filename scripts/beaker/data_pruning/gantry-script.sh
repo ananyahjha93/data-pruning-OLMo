@@ -3,8 +3,8 @@
 set -ex
 
 NUM_NODES=1
-TASK_NAME=olmo-60M-pes2o-24B
-MAX_DURATION=12_000
+TASK_NAME=olmo-60M-pes2o-60B
+MAX_DURATION=30_000
 
 gantry run \
     --allow-dirty \
