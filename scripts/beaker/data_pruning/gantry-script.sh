@@ -3,7 +3,7 @@
 set -ex
 
 NUM_NODES=1
-TASK_NAME=baseline-olmo-300M-pes2o-12B
+TASK_NAME=baseline-olmo-300M-c4-12B
 MAX_DURATION=6_000
 CONFIG_FILE=configs/data_pruning/baseline-OLMo-300M.yaml
 
@@ -15,7 +15,7 @@ gantry run \
     --priority high \
     --preemptible \
     --beaker-image shanea/olmo-torch2.2-gantry \
-    --cluster ai2/jupiter-cirrascale-2 \
+    --cluster ai2/pluto-cirrascale \
     --gpus 8 \
     --replicas "${NUM_NODES}" \
     --leader-selection \
