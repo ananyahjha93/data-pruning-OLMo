@@ -21,7 +21,6 @@ curl "https://storage.googleapis.com/hf-cache/huggingface_cache_v4.tar.gz" | tar
 popd
 export HF_DATASETS_OFFLINE=1
 
-# olmo-300M
 torchrun \
   --nnodes ${NUM_NODES}:${NUM_NODES} \
   --nproc-per-node 8 \

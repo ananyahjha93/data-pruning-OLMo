@@ -22,7 +22,6 @@ gantry run \
     --budget ai2/oe-training \
     --no-nfs \
     --propagate-failure \
-    --synchronized-start-timeout 30m \
     --env LOG_FILTER_TYPE=local_rank0_only \
     --env OMP_NUM_THREADS=8 \
     --env OLMO_TASK=model \
@@ -33,4 +32,4 @@ gantry run \
     --venv base \
     --yes \
     --timeout=-1 \
-    -- /bin/bash -c "scripts/beaker/tiny/torchrun-script.sh \$BEAKER_LEADER_REPLICA_HOSTNAME ${NUM_NODES} ${TASK_NAME} ${MAX_DURATION}"
+    -- /bin/bash -c "scripts/beaker/data_pruning/torchrun-script.sh \$BEAKER_LEADER_REPLICA_HOSTNAME ${NUM_NODES} ${TASK_NAME} ${MAX_DURATION}"
