@@ -3,7 +3,7 @@
 set -ex
 
 NUM_NODES=1
-TASK_NAME=reference/olmo-60M-pes2o-24B
+TASK_NAME=olmo-60M-pes2o-24B
 MAX_DURATION=12_000
 
 gantry run \
