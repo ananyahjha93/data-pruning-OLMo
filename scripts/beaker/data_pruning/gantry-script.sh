@@ -2,9 +2,9 @@
 
 set -ex
 
-NUM_NODES=1
-TASK_NAME=baseline-olmo-300M-c4-12B
-MAX_DURATION=6_000
+NUM_NODES=2
+TASK_NAME=baseline-olmo-300M-pes2o-60B
+MAX_DURATION=30_000
 CONFIG_FILE=configs/data_pruning/baseline-OLMo-300M.yaml
 
 gantry run \
@@ -23,6 +23,7 @@ gantry run \
     --budget ai2/oe-training \
     --no-nfs \
     --propagate-failure \
+    --synchronized-start-timeout 30m \
     --env LOG_FILTER_TYPE=local_rank0_only \
     --env OMP_NUM_THREADS=8 \
     --env OLMO_TASK=model \
