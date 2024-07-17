@@ -3,8 +3,9 @@
 set -ex
 
 NUM_NODES=1
-TASK_NAME=olmo-60M-pes2o-60B
-MAX_DURATION=30_000
+TASK_NAME=baseline-olmo-300M-pes2o-12B
+MAX_DURATION=6_000
+CONFIG_FILE=configs/data_pruning/baseline-OLMo-300M.yaml
 
 gantry run \
     --allow-dirty \
@@ -32,4 +33,4 @@ gantry run \
     --venv base \
     --yes \
     --timeout=-1 \
-    -- /bin/bash -c "scripts/beaker/data_pruning/torchrun-script.sh \$BEAKER_LEADER_REPLICA_HOSTNAME ${NUM_NODES} ${TASK_NAME} ${MAX_DURATION}"
+    -- /bin/bash -c "scripts/beaker/data_pruning/torchrun-script.sh \$BEAKER_LEADER_REPLICA_HOSTNAME ${CONFIG_FILE} ${NUM_NODES} ${TASK_NAME} ${MAX_DURATION}"

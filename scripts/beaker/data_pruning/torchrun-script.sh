@@ -5,6 +5,9 @@ IFS=$'\n\t'
 BEAKER_LEADER_REPLICA_HOSTNAME=$1
 shift
 
+CONFIG_FILE=$1
+shift
+
 NUM_NODES=$1
 shift
 
@@ -27,8 +30,7 @@ torchrun \
   --rdzv_id=101 \
   --rdzv_backend=c10d \
   --rdzv_endpoint=$BEAKER_LEADER_REPLICA_HOSTNAME:29400 \
-  scripts/train.py \
-    configs/data_pruning/reference-OLMo-60M.yaml \
+  scripts/train.py $CONFIG_FILE \
       --run_name=$TASK_NAME \
       --wandb.name=$TASK_NAME \
       --wandb.group=$TASK_NAME \
