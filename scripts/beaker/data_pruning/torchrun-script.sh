@@ -17,6 +17,9 @@ shift
 MAX_DURATION=$1
 shift
 
+SAVE_INTERVAL=$1
+shift
+
 # Warm HF cache
 mkdir -p /root/.cache
 pushd /root/.cache
@@ -37,4 +40,5 @@ torchrun \
       --wandb.project=data-pruning \
       --max_duration=$MAX_DURATION \
       --stop_at=$MAX_DURATION \
+      --save_interval_unsharded=$SAVE_INTERVAL \
       --save_overwrite
