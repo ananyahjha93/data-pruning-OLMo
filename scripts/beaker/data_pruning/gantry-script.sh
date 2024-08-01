@@ -3,10 +3,10 @@
 set -ex
 
 NUM_NODES=1
-TASK_NAME=pruned-olmo-300M-pes2o-12B-low-ref-olmo-60M-c4-24B
-MAX_DURATION=6_000
-SAVE_INTERVAL=6_000
-CONFIG_FILE=configs/data_pruning/pruned-OLMo-300M-low.yaml
+TASK_NAME=pruned-olmo-300M-pes2o-60B-high-ref-olmo-60M-c4-24B
+MAX_DURATION=30_000
+SAVE_INTERVAL=30_000
+CONFIG_FILE=configs/data_pruning/pruned-OLMo-300M-high.yaml
 
 gantry run \
     --allow-dirty \
